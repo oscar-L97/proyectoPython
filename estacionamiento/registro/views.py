@@ -8,6 +8,18 @@ class IndexList(generic.ListView):
     template_name="registro/IndexList.html"
     model = Espacio
 
+class ListMat(generic.ListView):
+    template_name="registro/ListMat.html"
+    model = Espacio
+
+class ListInt(generic.ListView):
+    template_name="registro/ListInt.html"
+    model = Espacio
+
+class ListVesp(generic.ListView):
+    template_name="registro/ListVesp.html"
+    model = Espacio
+
 class Modificar(generic.UpdateView):
     template_name="registro/Modificar.html"
     model = Espacio
