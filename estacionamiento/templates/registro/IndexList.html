@@ -1,0 +1,15 @@
+<div class="container">
+  <div class="row">
+    <ul>
+      {% for registro in object_list %}
+
+      <li>{{ registro.identificacion }}</li>
+      <li>{{ registro.nom_mat }}</li>
+      <li>{{ registro.nom_int }}</li>
+      <li>{{ registro.nom_vesp }}</li>
+      <a href="{% url 'registro:modificar' registro.id %}">modificar</a>
+      <br>
+      {% endfor %}
+    </ul>
+  </div>
+</div>
