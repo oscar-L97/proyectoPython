@@ -8,8 +8,10 @@
       <li>{{ registro.nom_int }}</li>
       <li>{{ registro.nom_vesp }}</li>
       <a href="{% url 'registro:modificar' registro.id %}">modificar</a>
+      <a href="{% url 'registro:borrar' registro.id %}">Borrar</a>
       <br>
       {% endfor %}
     </ul>
+    <a href="{% url 'registro:crear' %}">Crear</a>
   </div>
 </div>

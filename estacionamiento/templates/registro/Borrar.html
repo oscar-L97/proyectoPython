@@ -1,0 +1,7 @@
+<form method="post">
+  {% csrf_token %}
+
+  <p>Desea borrar el espacio de estacionamiento: " {{object.identificacion}} "?</p>
+  <button type="submit">Borrar</button>
+
+</form>

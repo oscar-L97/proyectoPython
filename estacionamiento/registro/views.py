@@ -11,5 +11,16 @@ class IndexList(generic.ListView):
 class Modificar(generic.UpdateView):
     template_name="registro/Modificar.html"
     model = Espacio
-    fields = ["nom_mat", "nom_int", "nom_vesp"]
+    fields = ["id_mat","nom_mat","id_int", "nom_int","id_vesp", "nom_vesp"]
     success_url= "/"
+
+class Crear(generic.CreateView):
+    template_name="registro/Crear.html"
+    model = Espacio
+    fields = ["identificacion"]
+    success_url = "/"
+
+class Borrar(generic.DeleteView):
+    template_name="registro/Borrar.html"
+    model=Espacio
+    success_url="/"

@@ -1,0 +1,7 @@
+<div class="row">
+  <form method="POST" class="form">
+      {% csrf_token %}
+      {{form.identificacion}}
+      <input type="submit" name="create" value="Crear">
+  </form>
+</div>
