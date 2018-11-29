@@ -26,11 +26,47 @@ class Modificar(generic.UpdateView):
     fields = ["id_mat","nom_mat","id_int", "nom_int","id_vesp", "nom_vesp"]
     success_url= "/"
 
+class Mod_Mat(generic.UpdateView):
+    template_name="registro/Mod_Mat.html"
+    model = Espacio
+    fields = ["id_mat","nom_mat"]
+    success_url = "/list_mat/"
+
+class Mod_Int(generic.UpdateView):
+    template_name="registro/Mod_Int.html"
+    model = Espacio
+    fields = ["id_int","nom_int"]
+    success_url = "/list_int/"
+
+class Mod_Vesp(generic.UpdateView):
+    template_name="registro/Mod_Vesp.html"
+    model = Espacio
+    fields = ["id_vesp","nom_vesp"]
+    success_url = "/list_vesp/"
+
 class Crear(generic.CreateView):
     template_name="registro/Crear.html"
     model = Espacio
     fields = ["identificacion"]
     success_url = "/"
+
+class Crear_mat(generic.CreateView):
+    template_name="registro/Crear.html"
+    model = Espacio
+    fields = ["identificacion"]
+    success_url = "/list_mat/"
+
+class Crear_int(generic.CreateView):
+    template_name="registro/Crear.html"
+    model = Espacio
+    fields = ["identificacion"]
+    success_url = "/list_int/"
+
+class Crear_vesp(generic.CreateView):
+    template_name="registro/Crear.html"
+    model = Espacio
+    fields = ["identificacion"]
+    success_url = "/list_vesp/"
 
 class Borrar(generic.DeleteView):
     template_name="registro/Borrar.html"

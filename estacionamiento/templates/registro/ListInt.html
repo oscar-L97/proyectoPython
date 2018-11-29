@@ -8,13 +8,14 @@
       {% for registro in object_list %}
 
       <li>{{ registro.identificacion }}</li>
+      <li>{{ registro.id_int }}</li>
       <li>{{ registro.nom_int }}</li>
 
-      <a href="{% url 'registro:modificar' registro.id %}">modificar</a>
+      <a href="{% url 'registro:mod_int' registro.id %}">modificar</a>
       <a href="{% url 'registro:borrar' registro.id %}">Borrar</a>
       <br>
       {% endfor %}
     </ul>
-    <a href="{% url 'registro:crear' %}">Crear</a>
+    <a href="{% url 'registro:crear_int' %}">Crear</a>
   </div>
 </div>
