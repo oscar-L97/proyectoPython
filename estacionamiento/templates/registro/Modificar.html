@@ -1,20 +1,31 @@
-<div class="row">
+{% extends "base.html" %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+
+<div class="container cont-estilo">
   <form method="POST">
+
+      <header class="header-estilo"><strong>Modificar</strong></header>
       {% csrf_token %}
-      <ul>
+      <!--{{form}}-->
+      <ul style="list-style: none; padding: 10px;">
         <li>
-          {{form.id_mat}}
+          Alumno Turno Matutino{{form.id_mat}}
           {{form.nom_mat}}
         </li>
         <li>
-          {{form.id_int}}
+          Alumno Interturno{{form.id_int}}
           {{form.nom_int}}
         </li>
         <li>
-          {{form.id_vesp}}
+          Alumno Turno Vespertino{{form.id_vesp}}
           {{form.nom_vesp}}
         </li>
       </ul>
-      <input type="submit" name="create" value="Modificar">
+      <input class="btn btn-primary" type="" name="create" value="Modificar">
   </form>
 </div>
+{% endblock %}

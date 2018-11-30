@@ -1,6 +1,7 @@
 from django.shortcuts import render
 from .models import Espacio
 from django.views import generic
+from .form import CreateEspacio, ModificarForm, ModificarMatForm,ModificarIntForm,ModificarVespForm
 
 # Create your views here.
 
@@ -23,49 +24,57 @@ class ListVesp(generic.ListView):
 class Modificar(generic.UpdateView):
     template_name="registro/Modificar.html"
     model = Espacio
-    fields = ["id_mat","nom_mat","id_int", "nom_int","id_vesp", "nom_vesp"]
+    #fields = ["id_mat","nom_mat","id_int", "nom_int","id_vesp", "nom_vesp"]
+    form_class=ModificarForm
     success_url= "/"
 
 class Mod_Mat(generic.UpdateView):
     template_name="registro/Mod_Mat.html"
     model = Espacio
-    fields = ["id_mat","nom_mat"]
+    form_class=ModificarMatForm
+    #fields = ["id_mat","nom_mat"]
     success_url = "/list_mat/"
 
 class Mod_Int(generic.UpdateView):
     template_name="registro/Mod_Int.html"
     model = Espacio
-    fields = ["id_int","nom_int"]
+    form_class=ModificarIntForm    
+    #fields = ["id_int","nom_int"]
     success_url = "/list_int/"
 
 class Mod_Vesp(generic.UpdateView):
     template_name="registro/Mod_Vesp.html"
     model = Espacio
-    fields = ["id_vesp","nom_vesp"]
+    #fields = ["id_vesp","nom_vesp"]
+    form_class=ModificarVespForm
     success_url = "/list_vesp/"
 
 class Crear(generic.CreateView):
     template_name="registro/Crear.html"
     model = Espacio
-    fields = ["identificacion"]
+    form_class=CreateEspacio
+    #fields = ["identificacion"]
     success_url = "/"
 
 class Crear_mat(generic.CreateView):
     template_name="registro/Crear.html"
     model = Espacio
-    fields = ["identificacion"]
+    form_class=CreateEspacio
+    #fields = ["identificacion"]
     success_url = "/list_mat/"
 
 class Crear_int(generic.CreateView):
     template_name="registro/Crear.html"
     model = Espacio
-    fields = ["identificacion"]
+    form_class=CreateEspacio
+    #fields = ["identificacion"]
     success_url = "/list_int/"
 
 class Crear_vesp(generic.CreateView):
     template_name="registro/Crear.html"
     model = Espacio
-    fields = ["identificacion"]
+    form_class=CreateEspacio
+    #fields = ["identificacion"]
     success_url = "/list_vesp/"
 
 class Borrar(generic.DeleteView):

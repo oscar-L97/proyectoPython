@@ -1,7 +1,24 @@
-<div class="row">
+{% extends "base.html" %}
+
+{% block title %} {% endblock %}
+
+{% block content %}
+
+
+<div class="cont-estilo" style="width:40%; margin: 100px auto; background-color: #fff">
+
+
+<header class="header-estilo"><strong>Crear Espacio</strong></header>
+
+
   <form method="POST" class="form">
       {% csrf_token %}
-      {{form.identificacion}}
-      <input type="submit" name="create" value="Crear">
+      {{form}}
+
+<br><br>      
+      <input  class="btn btn-primary" type="submit" name="create" value="Crear">
   </form>
 </div>
+
+
+{% endblock %}

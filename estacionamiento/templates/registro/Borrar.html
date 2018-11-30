@@ -1,7 +1,15 @@
-<form method="post">
-  {% csrf_token %}
+{% extends "base.html" %}
 
-  <p>Desea borrar el espacio de estacionamiento: " {{object.identificacion}} "?</p>
-  <button type="submit">Borrar</button>
+{% block content %}
 
-</form>
+<div class="container cont-estilo">
+	<form method="post">
+	  {% csrf_token %}
+
+	  <p>Desea borrar el espacio de estacionamiento: " {{object.identificacion}} "?</p>
+	  <button class="btn btn-primary" type="submit">Borrar</button>
+
+	</form>
+
+</div>	
+{% endblock %}

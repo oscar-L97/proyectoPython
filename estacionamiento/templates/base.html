@@ -8,13 +8,43 @@
 
     <!-- Bootstrap CSS -->
     <link rel="stylesheet" href="{% static 'bootstrap4/css/bootstrap.min.css' %}">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous"><link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+
 
     <title>{% block title %} {% endblock%}</title>
+
+    <style type="text/css">
+        body{
+            background-color: #E6E6E6;
+        }
+
+        .cont-estilo{
+            background-color: #f2f2f2;
+            border:1px solid #999; 
+            padding: 30px; margin-top: 50px;
+            box-shadow: #999 0px 10px 10px;
+            border-radius: 10px;
+        }
+
+        .header-estilo{
+            background: #005eff; 
+            width: 100%; 
+            padding: 10px; 
+            text-align: center; 
+            color: white; margin: auto; 
+            border-radius: 5px 5px 0px 0px;
+            margin-bottom: 20px;
+        }
+
+
+
+    </style>
+
+
   </head>
   <body>
 
-    <!-- {%include "navbar.html" %} -->
-
+    {% include "navbar.html" %}
 
     {% block content%}
     {% endblock %}
