@@ -1,65 +1,90 @@
 {% extends "base.html" %}
 
+{% block script %}
+<script type="text/javascript">
+  $(document).ready(function(){
+    console.log("working")
+    $.ajax({
+      url: "/api/list_registro/",
+      method: "GET",
+      success:function(data){
+        // console.log(data)
+        $.each(data, function(key, value){
+            console.log(key)
+            var registroKey = key
+            var registro_id = value.id
+            var registroIdentificacion = value.identificacion
+            var registro_nom_mat = value.nom_mat
+            var registro_nom_int = value.nom_int
+            var registro_nom_vesp = value.nom_vesp
+            $(".info").append('<div class="col-md-6">'+
+
+                '<div class="list-group" style="margin-top:3px;">'+
+
+                   '<div class="list-group-item  flex-column align-items-start">'+
+
+                     '<div class="d-flex w-100 justify-content-between">'+
+
+                        '<h5 class="mb-1"'+ 'style=""><strong>'+registroIdentificacion+'</strong></h5>'+
+
+                        '<small>'+
+                          '<a href="modificar/'+registro_id+'">Modificar</a><br>'+
+                          '<a href="borrar/'+registro_id+'"><i class="fas fa-minus-circle"></i>  Borrar</a>'+
+                          '</small>'+
+                     '</div>'+
+
+
+                        '<p class="mb-1" style="color:#005eff"><strong>Alumnos'+ 'Asignados</strong></p>'+
+                        '<p class="mb-1"><strong>Matutino: </strong>'+registro_nom_mat+'</p>'+
+                        '<p class="mb-1"><strong>Interturno : </strong>'+registro_nom_int+'</p>'+
+                        '<p class="mb-1"><strong>Vespertino: </strong>'+registro_nom_vesp+'</p>'+
+
+                   '</div>'+
+
+              '</div>'+
+
+            '</div>')
+        })
+      },
+      error:function(data){
+        console.log("error")
+        console.log(data)
+      }
+    })
+  });
+</script>
+{%endblock%}
+
 
 
 {% block content%}
 
 <div class="container cont-estilo" >
   <header class="header-estilo"><h4><strong>Espacios de Estacionamiento</strong></h4></header>
- 
+
   <div class="row">
-    
+
     <div class="col-md-10">
       <ul class="nav nav-tabs">
           <li class="nav-item"><a class="nav-link active" href="{% url 'registro:index_list' %}">Todos</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'registro:list_mat' %}">Matutino</a></li>
           <li class="nav-item"><a class="nav-link" href="{% url 'registro:list_int' %}">Interturno</a></li>
-          <li class="nav-item"><a class="nav-link" href="{% url 'registro:list_vesp' %}">Vespertino</a></li> 
+          <li class="nav-item"><a class="nav-link" href="{% url 'registro:list_vesp' %}">Vespertino</a></li>
       </ul>
      </div>
       <div class="col-md-2">
         <ul class="nav nav-tabs nav-justified">
-          <li class="nav-item"><a class="nav-link" href="{% url 'registro:crear' %}"><i class="fas fa-plus-square"></i>    Crear</a></li> 
+          <li class="nav-item"><a class="nav-link" href="{% url 'registro:crear' %}"><i class="fas fa-plus-square"></i>    Crear</a></li>
         </ul>
-      </div> 
+      </div>
 
   </div>
 
 
 
-  
-  <div class="row">
-    
-  {% for registro in object_list %}
 
-    <div class="col-md-6">
+  <div class="row info">
 
-        <div class="list-group" style="margin-top:3px;">
-
-           <div class="list-group-item  flex-column align-items-start">
-             
-             <div class="d-flex w-100 justify-content-between">
-                
-                <h5 class="mb-1" style=""><strong>{{ registro.identificacion }}</strong></h5>
-                <small>
-                  <a href="{% url 'registro:modificar' registro.id %}">Modificar</a><br>
-                  <a href="{% url 'registro:borrar' registro.id %}"><i class="fas fa-minus-circle"></i>  Borrar</a>
-                </small>
-
-             </div>
-               
-                <p class="mb-1" style="color:#005eff"><strong>Alumnos Asignados</strong></p>
-                <p class="mb-1"><strong>Matutino: </strong>{{ registro.nom_mat }}</p>
-                <p class="mb-1"><strong>Interturno : </strong>{{ registro.nom_int }}</p>
-                <p class="mb-1"><strong>Vespertino: </strong>{{ registro.nom_vesp }}</p>
-                          
-           </div>
-
-      </div>
-
-  </div>  
-  {% endfor %}
-   
   </div>
 
     <a href="{% url 'registro:crear' %}">Crear</a>
