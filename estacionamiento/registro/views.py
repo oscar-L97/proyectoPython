@@ -1,9 +1,17 @@
+from django.contrib.auth.models import User
+from django.contrib.auth.forms import UserCreationForm
 from django.shortcuts import render
 from .models import Espacio
 from django.views import generic
-from .form import CreateEspacio, ModificarForm, ModificarMatForm,ModificarIntForm,ModificarVespForm
+from .form import CreateEspacio, ModificarForm, ModificarMatForm,ModificarIntForm,ModificarVespForm, RegistroUForm
 
 # Create your views here.
+
+class RegistroUForm(generic.CreateView):
+    model = User
+    template_name = "registro.html"
+    form_class = RegistroUForm
+    success_url = "/"
 
 class IndexList(generic.ListView):
     template_name="registro/IndexList.html"
@@ -38,7 +46,7 @@ class Mod_Mat(generic.UpdateView):
 class Mod_Int(generic.UpdateView):
     template_name="registro/Mod_Int.html"
     model = Espacio
-    form_class=ModificarIntForm    
+    form_class=ModificarIntForm
     #fields = ["id_int","nom_int"]
     success_url = "/list_int/"
 
