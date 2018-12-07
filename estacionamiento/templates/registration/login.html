@@ -4,20 +4,23 @@
 
 {% block content %}
 
-<<!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
     <title></title>
   </head>
   <body>
-    <form class="container" method="post">
+    <form class="container cont-estilo" method="post" style="width: 30%;">
       {% csrf_token %}
+
+      <header class="header-estilo"><strong>iniciar Sesion</strong></header>
+
       <div class="row">
         <div class="col-md-7">
           <div class="form-group">
             <label>Usuario</label>
-            <input type="text" class="from-control" name="username">
+            <input type="text" class="form-control" name="username">
           </div>
         </div>
       </div>
@@ -25,13 +28,14 @@
         <div class="col-md-7">
           <div class="from-group">
             <label>Contrasena</label>
-            <input type="password" name="password">
+            <input type="password" class="form-control" name="password">
           </div>
         </div>
       </div>
       <div class="row">
         <div class="col-md-8">
           <div class="form-group">
+            <br>
             <button type="submit" name="button" class="btn btn-primary">Ingresar</button>
           </div>
         </div>
